@@ -16,26 +16,23 @@ const Post = () => {
         <span className="posttitle">
           Lorem ipsum dolor
           <hr />
-          <span className="postdate">1hour ago</span>
         </span>
+        <span className="postdate">1hour ago</span>
       </div>
       <p className="postdesc">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eligendi
         voluptate perferendis in corporis est libero ipsam atque, nisi unde
         debitis itaque provident repudiandae. Illo optio mollitia suscipit ad
-        recusandae.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eligendi
-        voluptate perferendis in corporis est libero ipsam atque, nisi unde
-        debitis itaque provident repudiandae. Illo optio mollitia suscipit ad
-        recusandae.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eligendi
-        voluptate perferendis in corporis est libero ipsam atque, nisi unde
-        debitis itaque provident repudiandae. Illo optio mollitia suscipit ad
-        recusandae.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eligendi
-        voluptate perferendis in corporis est libero ipsam atque, nisi unde
-        debitis itaque provident repudiandae. Illo optio mollitia suscipit ad
-        recusandae.
+        recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Autem eligendi voluptate perferendis in corporis est libero ipsam atque,
+        nisi unde debitis itaque provident repudiandae. Illo optio mollitia
+        suscipit ad recusandae. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Autem eligendi voluptate perferendis in corporis est
+        libero ipsam atque, nisi unde debitis itaque provident repudiandae. Illo
+        optio mollitia suscipit ad recusandae. Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Autem eligendi voluptate perferendis in
+        corporis est libero ipsam atque, nisi unde debitis itaque provident
+        repudiandae. Illo optio mollitia suscipit ad recusandae.
       </p>
     </div>
   );

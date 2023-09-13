@@ -1,14 +1,14 @@
 import Post from "../Post/Post";
 import "./Posts.css";
 
-const Posts = () => {
+const Posts = ({ posts }) => {
+  console.log(posts);
+  
   return (
     <div className="posts">
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      {posts.map((post) => (
+        <Post key={post._id} post={post}/>
+      ))}
     </div>
   );
 };

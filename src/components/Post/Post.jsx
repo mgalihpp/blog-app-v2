@@ -1,39 +1,24 @@
 import "./Post.css";
+import formatTimeDifference from "./../../utils/formatDate";
+import { Link } from "react-router-dom";
 
-const Post = () => {
+const Post = ({ post }) => {
   return (
     <div className="post">
-      <img
-        src="https://cdn.pixabay.com/photo/2017/10/10/07/48/hills-2836301_960_720.jpg"
-        alt=""
-        className="postimg"
-      />
+      {post.photo && <img src={post.photo} alt="" className="postimg" />}
       <div className="postinfo">
         <div className="postcats">
-          <span className="postcat">Music</span>
-          <span className="postcat">Life</span>
+          {post.categories.map((cat) => (
+            <span className="postcat">{cat.name}</span>
+          ))}
         </div>
-        <span className="posttitle">
-          Lorem ipsum dolor
-          <hr />
-        </span>
-        <span className="postdate">1hour ago</span>
+        <Link to={`/post/${post._id}`}>
+          <span className="posttitle">{post.title}</span>
+        </Link>
+        <hr />
+        <span className="postdate">{formatTimeDifference(post.createdAt)}</span>
       </div>
-      <p className="postdesc">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eligendi
-        voluptate perferendis in corporis est libero ipsam atque, nisi unde
-        debitis itaque provident repudiandae. Illo optio mollitia suscipit ad
-        recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Autem eligendi voluptate perferendis in corporis est libero ipsam atque,
-        nisi unde debitis itaque provident repudiandae. Illo optio mollitia
-        suscipit ad recusandae. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Autem eligendi voluptate perferendis in corporis est
-        libero ipsam atque, nisi unde debitis itaque provident repudiandae. Illo
-        optio mollitia suscipit ad recusandae. Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Autem eligendi voluptate perferendis in
-        corporis est libero ipsam atque, nisi unde debitis itaque provident
-        repudiandae. Illo optio mollitia suscipit ad recusandae.
-      </p>
+      <p className="postdesc">{post.desc}</p>
     </div>
   );
 };

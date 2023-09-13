@@ -1,16 +1,31 @@
+import { Link, useParams } from "react-router-dom";
 import "./Singlepost.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import formatTimeDifference from "./../../utils/formatDate";
 
 const Singlepost = () => {
+  const { postId } = useParams();
+  const [post, setPost] = useState([]);
+  console.log(postId);
+
+  useEffect(() => {
+    const getPost = async () => {
+      const res = await axios.get(`/posts/${postId}`);
+      const data = res.data;
+      setPost(data.post);
+    };
+    getPost();
+  }, [postId]);
+
   return (
     <div className="singlepost">
       <div className="singlepostwrapper">
-        <img
-          src="https://cdn.pixabay.com/photo/2017/10/10/07/48/hills-2836301_960_720.jpg"
-          alt=""
-          className="singlepostimg"
-        />
+        {post.photo && (
+          <img src={post.photo} alt="" className="singlepostimg" />
+        )}
         <h1 className="singleposttitle">
-          Lorem ipsum dolor sit amet
+          {post.title}
           <div className="singlepostedit">
             <i className="singleposticon far fa-edit"></i>
             <i className="singleposticon far fa-trash-alt"></i>
@@ -18,28 +33,16 @@ const Singlepost = () => {
         </h1>
         <div className="singlepostinfo">
           <span className="singlepostauthor">
-            Author: <b>Galih</b>
+            Author: 
+            <Link to={`/?user=${post.username}`}>
+            <b>{post.username}</b>
+            </Link>
           </span>
-          <span className="singlepostdate">1 hour ago</span>
+          <span className="singlepostdate">
+            {formatTimeDifference(post.createdAt)}
+          </span>
         </div>
-        <p className="singlepostdesc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque a
-          mollitia sapiente voluptatum quae eius cupiditate nihil. Ut dicta
-          voluptatibus id magni iure magnam laboriosam pariatur non praesentium
-          culpa!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque a
-          mollitia sapiente voluptatum quae eius cupiditate nihil. Ut dicta
-          voluptatibus id magni iure magnam laboriosam pariatur non praesentium
-          culpa!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque a
-          mollitia sapiente voluptatum quae eius cupiditate nihil. Ut dicta
-          voluptatibus id magni iure magnam laboriosam pariatur non praesentium
-          culpa!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque a
-          mollitia sapiente voluptatum quae eius cupiditate nihil. Ut dicta
-          voluptatibus id magni iure magnam laboriosam pariatur non praesentium
-          culpa!
-        </p>
+        <p className="singlepostdesc">{post.desc}</p>
       </div>
     </div>
   );

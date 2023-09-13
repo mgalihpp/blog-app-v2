@@ -7,7 +7,7 @@ const PostScehema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    esc: {
+    desc: {
       type: String,
       required: true,
       unique: true,

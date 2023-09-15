@@ -3,9 +3,11 @@ import formatTimeDifference from "./../../utils/formatDate";
 import { Link } from "react-router-dom";
 
 const Post = ({ post }) => {
+
+  const PF = "http://localhost:5000/images/"
   return (
     <div className="post">
-      {post.photo && <img src={post.photo} alt="" className="postimg" />}
+      {post.photo && <img src={PF + post.photo} alt="" className="postimg" />}
       <div className="postinfo">
         <div className="postcats">
           {post.categories.map((cat) => (

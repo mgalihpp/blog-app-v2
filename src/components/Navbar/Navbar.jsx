@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { useContext } from "react";
+import { Context } from "../../context/Context";
 
 const Navbar = () => {
-  const user = false;
+  const { user, dispacth} = useContext(Context);
+
+  const handleLogout = () => {
+    dispacth({type: "LOGOUT"})
+  }
+
   return (
     <div className="top">
       <div className="topleft">
@@ -25,13 +32,13 @@ const Navbar = () => {
           <li className="toplistitem">
             <Link to="/write">WRITE</Link>
           </li>
-          <li className="toplistitem">{user && "LOGOUT"}</li>
+          <li className="toplistitem" onClick={handleLogout}>{user && "LOGOUT"}</li>
         </ul>
       </div>
       <div className="topright">
         {user ? (
           <img
-            src="https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg"
+            src={user.profile}
             alt=""
             className="topimg"
           />

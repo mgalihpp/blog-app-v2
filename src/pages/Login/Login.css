@@ -14,44 +14,48 @@
 }
 
 .logintitle {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .loginform {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .loginform > label {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .logininput {
-    padding: 10px;
-    background-color: white;
-    border: none;
-
+  padding: 10px;
+  background-color: white;
+  border: none;
 }
 
 .login-btn {
-    margin-top: 20px;
-    cursor: pointer;
-    background-color: lightcoral;
-    border: none;
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: lightcoral;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .registerbtn {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: teal;
-    cursor: pointer;
-    border: none;
-    padding: 10px;
-    color: white;
-    border-radius: 10px;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: teal;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+.login-btn:disabled {
+  cursor: not-allowed;
+  background-color: rgb(255, 190, 167);
 }
